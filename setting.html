@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>大宮スクールバス時刻表カレンダー</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <link rel="apple-touch-icon" href="./public/img/shibaura.jpg"/>
+    <link href="./public/css/mobiscroll.custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="./public/css/index.css" rel="stylesheet" type="text/css" />
+    <style>
+        #overflow_hidden_div{
+            /*padding-top: 20px;*/
+            padding: 0 20px;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        p{
+            font-size: 14px;
+            color: #333;
+        }
+        .save{
+            display: none;
+            margin: 0 auto;
+            margin-top: 10px;
+            width: 70%;
+            height: 30px;
+            border: 1px solid #4cae4c;
+            border-radius: 6px;
+            background-color: #5cb85c;
+        }
+        .save > a{
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            text-shadow: none;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .bs-docs-section{
+            margin-top: 15px;
+            padding-bottom: 15px;
+            line-height: 30px;
+            border-bottom: 1px solid #c9c9c9;
+        }
+        .bs-docs-section > label{
+            margin-left: 20px;
+        }
+        .bs-docs-section > h3{
+
+        }
+        .bs-docs-section > label{
+
+        }
+        .bs-docs-section > label > input{
+            margin-right: 10px;
+        }
+        .bs-docs-section > p{
+
+        }
+    </style>
+</head>
+<body>
+<div id="iframe-wrap">
+    <div id="overflow_hidden_div">
+        <div class="bs-docs-section" style="text-align: center;border-bottom:2px solid #000;margin-left: 0">
+            <h2 style="text-align: center">スクールバス検索設定</h2>
+        </div>
+        <div class="bs-docs-section">
+            <h3>JR時刻表表示：</h3>
+            <label><input type="radio" name="jr_switch" value="1" checked>ON</label>
+            <label><input type="radio" name="jr_switch" value="0">OFF</label>
+            <p class="cookie_jr_switch" style="color: red;display: none;">Cookieが無効にされている。<a target="_blank" href="https://support.apple.com/ja-jp/HT201265">Cookieを有効にする。</a></p>
+            <div class='save save_jr_switch'>
+                <a class="submit">保存してトップページへ移動</a>
+            </div>
+        </div>
+        <div class="bs-docs-section">
+            <h3>JR時刻表方向：</h3>
+            <label><input type="radio" name="jr_direction" value="0" checked>東大宮　〜　大宮・上野・新宿</label><br>
+            <label><input type="radio" name="jr_direction" value="1">東大宮　〜　宇都宮・黒磯</label>
+            <p class="cookie_jr_direction" style="color: red;display: none;">Cookieが無効にされている。<a target="_blank" href="https://support.apple.com/ja-jp/HT201265">Cookieを有効にする。</a></p>
+            <div class='save save_jr_direction'>
+                <a class="submit">保存してトップページへ移動</a>
+            </div>
+        </div>
+        <!--<div class="bs-docs-section">-->
+            <!--<h3>毎回ウェブサイトを開けた時に：</h3>-->
+            <!--<label><input type="radio" name="" value="0" checked="checked">検索画面を表示する</label><br>-->
+            <!--<label><input type="radio" name="" value="1">自動に午前は校舎発バス、午後は駅前発バスを表示する</label>-->
+            <!--<p></p>-->
+        <!--</div>-->
+        <div class="bs-docs-section">
+            <h3>開発者と連絡：</h3>
+            <p>ご意見や不具合があったら遠慮なく言ってください。</p>
+            <a href="mailto:shibaura.bus@gmail.com" class="submit">Email</a>
+        </div>
+        <div class="bs-docs-section" style="text-align: center;padding-bottom: 0;border: 0;">
+            <h3 style="text-align: left">Webサイトのソースコード(準備中)：</h3>
+            <a href="" class="submit"><img src="./public/img/github.png" width="70%"></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="./public/js/jquery.cookie.js"></script>
+<script src="./public/js/mobiscroll.custom.min.js"></script>
+<script src="./public/js/index.js"></script>
+<script>
+    $(document).ready(function() {
+
+    });
+    if(!$.cookie('user_id')){
+        var now = new Date();
+        var time = String(Date.parse(now)/1000);
+        time = time.substring(5);
+        var random = String(parseInt(Math.random()*(999-100+1)+100));
+        $.cookie('user_id', time+random, { expires: 365*10 });
+    }if(!$.cookie('jr_switch')){
+        $.cookie('jr_switch', 1, { expires: 365*10 });
+    }if(!$.cookie('jr_direction')){
+        $.cookie('jr_direction', 0, { expires: 365*10 });
+    }
+
+    var jr_switch = $.cookie('jr_switch');
+    var jr_direction = $.cookie('jr_direction');
+    $('input[name=jr_direction][value='+jr_direction+']').attr("checked","checked")
+    $('input[name=jr_switch][value='+jr_switch+']').attr("checked","checked")
+
+    $('input').click(function(){
+        var dt = new Date();
+        dt.setSeconds(dt.getSeconds() + 60);
+        document.cookie = "cookietest=1; expires=" + dt.toGMTString();
+        var cookiesEnabled = document.cookie.indexOf("cookietest=") != -1;
+        if(!cookiesEnabled){
+            name = $(this).attr('name');
+            $('.cookie_'+name).show();
+        }else{
+            name = $(this).attr('name');
+            $('.save_'+name).show();
+        }
+    })
+
+    $('.submit').click(function(e){
+        jr_switch = $('input[name=jr_switch]:checked').val()
+        jr_direction = $('input[name=jr_direction]:checked').val()
+        $.cookie('jr_switch', jr_switch, { expires: 365*10 });
+        $.cookie('jr_direction', jr_direction, { expires: 365*10 });
+        window.location.href="index.php";
+    })
+
+</script>

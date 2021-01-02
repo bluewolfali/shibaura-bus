@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>芝工大バス</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <link rel="apple-touch-icon" href="./public/img/shibaura-icon.jpg"/>
+    <link href="./public/css/mobiscroll.custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="./public/css/index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="iframe-wrap">
+    <div id="overflow_hidden_div">
+        <div id="width_long_div">
+            <div id="iframe-seacrh">
+                <div class="top">
+                    <div class="portrait">
+                        <img src="./public/img/shibaura.jpg" alt="">
+                        <img src="./public/img/title.jpg" alt="">
+                    </div>
+                </div>
+                <div class="middle">
+                    <div class="bus_direction">
+                        <div class="school">学校</div>
+                        <div class="change"> → </div>
+                        <div class="train">駅</div>
+                    </div>
+                    <div class="section">
+                        <input type="text" id="demo_datetime" value="" />
+                    </div>
+                    <br>
+                    <div class="bottom">
+                        <a id="submit" class="submit">検索</a>
+                    </div>
+                    <div class="setting">
+                        <a href="./setting.html">検索設定</a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <img src="./public/img/bg_bottom.jpg" />
+                </div>
+            </div>
+            <div id="iframe-result">
+                <div class="top">
+                    <div class="top-left button-back"><img src="./public/img/back.jpg" height="17px"> 戻り</div>
+                    <div class="top-middle">検索結果(学校 → 駅)</div>
+                    <div class="top-right"><a href="./setting.html">設定</a></div>
+                </div>
+                <div class="bottom">
+                    <div class="box">
+                        <!--<div class="result"><div class="border"><div style="float:left;">17:01<span class="label">学</span></div><div style="float:left;"><span><img src="./public/img/Arrow-OutRight-icon.png" class="arrowhead"></span></div><div style="float:left;">17:05<span class="label">駅</span></div><div style="float:left;"><span><img src="./public/img/Arrow-OutRight-icon.png" class="arrowhead"></span></div><div style="float:left;">17:10<span class="label">熱</span></div></div></div><div class="result"><div class="border"><div style="float:left;">17:01<span class="label">熱</span></div><div style="float:left;"><span><img src="./public/img/Arrow-OutRight-icon.png" class="arrowhead"></span></div><div style="float:left;">17:05<span class="label">バス</span></div><div style="float:left;"><span><img src="./public/img/Arrow-OutRight-icon.png" class="arrowhead"></span></div><div style="float:left;">約5分後<span class="label">学</span></div></div></div><div class="result"><div class="border"><div style="float:left;"><span>17:00</span><span class="label">学</span><br><span>　︴</span><br><span>17:55</span><span class="label">学</span><br></div><div style="float:left;"><span><img src="./public/img/Arrow-OutRight-icon.png" class="arrowhead"></span></div><div class="gofungo" style="float:left;">約5分後<span class="label">駅</span></div><div style="float:left;"><span><img src="./public/img/Arrow-OutRight-icon.png" class="arrowhead"></span></div><div style="float:left;">17:10<span class="label">熱</span><br>17:10<span class="label label_blue">大</span><br>17:10<span class="label">熱</span><br>17:10<span class="label label_blue">熱</span><br>17:10<span class="label">熱</span><br>17:10<span class="label">熱</span><br>17:10<span class="label">熱</span><br>17:10<span class="label">熱</span><br></div></div></div><div class="result"><div class="border"><div style="float:left;">17:10<span class="label">熱</span><br>17:10<span class="label label_blue">大</span><br>17:10<span class="label">熱</span><br>17:10<span class="label label_blue">熱</span><br>17:10<span class="label">熱</span><br>17:10<span class="label">熱</span><br>17:10<span class="label">熱</span><br>17:10<span class="label">熱</span><br></div><div style="float:left;"><span><img src="./public/img/Arrow-OutRight-icon.png" class="arrowhead"></span></div><div style="float:left;"><span>17:00</span><span class="label">学</span><br><span>　︴</span><br><span>17:55</span><span class="label">学</span><br></div><div style="float:left;"><span><img src="./public/img/Arrow-OutRight-icon.png" class="arrowhead"></span></div><div class="gofungo" style="float:left;">約5分後<span class="label">学</span></div></div></div>-->
+                    </div>
+                </div>
+                <div class="loading">
+                    <img src="./public/img/loading.gif" />
+                </div>
+                <div class="no_date">
+                    <div>本日はバスの運行はありません。</div>
+                    <img src="./public/img/no_date.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="./public/js/jquery.cookie.js"></script>
+<script src="./public/js/mobiscroll.custom.min.js"></script>
+<script src="./public/js/index.js"></script>
